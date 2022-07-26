@@ -30,3 +30,25 @@ new ArrayOfAny<string> (['hello', 'world'])
 // TS generics allow for type inference when declared through the given values
 const arr = new ArrayOfAny(['a', 'b', 'c'])
 const arrN = new ArrayOfAny([1, 2, 3])
+
+// example of generics with functions
+function printStrings(arr: string[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+};
+
+function printNums(arr: number[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+
+function printAny<T>(arr: T[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+
+printAny<string>(['a', 'b', 'c']);
+printAny([1, 2, 3, 5])
